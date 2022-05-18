@@ -1,0 +1,48 @@
+.text-title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    color: #141414;
+}
+
+.text-content {
+    color: #141414;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 96px;
+}
+
+.text-add {
+    border-left: 1px solid #514A4A;
+    font-family: 'Poppins', sans-serif;
+    color: #c4c4c4;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 42px;
+}
+
+.button-daftar {
+    color: white;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background-color: #23212A;
+    border-radius: 20px;
+    padding: 18px;
+}
+
+.button-daftar:hover {
+    color: white;
+    background-color: #0a0a0a;
+}
+
+.text-footer {
+    color: #959595;
+}
+
+section {
+    background-color: #0D6EFD;
+}
