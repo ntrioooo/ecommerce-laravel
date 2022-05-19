@@ -24,7 +24,21 @@ Route::get('/', function () {
 });
 
 Route::get('/shops', [ShopController::class, 'index']);
-Route::get('shops/order/{shop:slug}', [ShopController::class, 'show']);
+
+Route::get('/order', function(){
+    return view('order', [
+        'title' => 'Pemesanan',
+        'active' => 'shops'
+    ]);
+});
+
+Route::get('/success', function(){
+    return view('order', [
+        'title' => 'Success',
+        'active' => 'shops',
+        'image' => 'success-image.png'
+    ]);
+});
 
 Route::get('/about', function () {
     return view('about', [

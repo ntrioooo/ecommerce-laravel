@@ -12,7 +12,8 @@ class ShopController extends Controller
         $title = '';
         return view('shops', [
             "title" => "Daftar Produk" . $title,
-            "active" => 'shop'
+            "active" => 'shop',
+            'shops' => Shop::latest()->paginate(9)
         ]);
     }
 

@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Shop;
 use App\Models\Kategori;
+use App\Models\Shop;
+use App\Models\Order;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,11 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Trio Nugroho',
-            'email' => 'asd@gmail.com',
-            'password' => bcrypt('qwerty')
-        ]);
+        // User::create([
+        //     'name' => 'Trio Nugroho',
+        //     'email' => 'asd@gmail.com',
+        //     'password' => bcrypt('qwerty')
+        // ]);
+
+        User::factory(2)->create();
 
         Kategori::create([
             'nama_kategori' => 'Top',
@@ -32,18 +35,8 @@ class DatabaseSeeder extends Seeder
             'slug' => 'bottom'
         ]);
 
-        Shop::create([
-            'nama_produk' => 'Baju',
-            'slug' => 'baju',
-            'harga' => 50000,
-            'kategori_id' => 1
-        ]);
+        Shop::factory(9)->create();
 
-        Shop::create([
-            'nama_produk' => 'Celana',
-            'slug' => 'celana',
-            'harga' => 30000,
-            'kategori_id' => 2
-        ]);
+        Order::factory(9)->create();
     }
 }
