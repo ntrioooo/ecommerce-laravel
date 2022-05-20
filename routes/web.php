@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ShopController;
 use App\Models\Kategori;
+use App\Http\Controllers\DashboardShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,3 +56,9 @@ Route::get('/kategoris', function() {
         'kategoris' => Kategori::all()
     ]);
 });
+
+Route::get('/dashboard', function (){
+    return view('dashboard.index');
+});
+
+Route::resource('/dashboard/shops', DashboardShopController::class);

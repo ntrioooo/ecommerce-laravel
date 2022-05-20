@@ -15,7 +15,7 @@ class OrderFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'nama_produk' => $this->faker->word(),
+            'nama_produk' => $this->faker->word(),  
             'size' => $this->faker->randomElement(['S', 'M', 'L', 'XL'])
         ];
     }
