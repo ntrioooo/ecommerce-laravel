@@ -27,12 +27,10 @@ class DatabaseSeeder extends Seeder
 
         Kategori::create([
             'nama_kategori' => 'Top',
-            'slug' => 'top'
         ]);
 
         Kategori::create([
             'nama_kategori' => 'Bottom',
-            'slug' => 'bottom'
         ]);
 
         Shop::factory(9)->create();

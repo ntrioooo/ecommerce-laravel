@@ -25,7 +25,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+            </div>
         </div>
         <div class="col-md-4">
             <label for="size" class="form-label">Select size :</label>

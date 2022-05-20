@@ -10,10 +10,14 @@
             @foreach ($shops as $shop)
                 <div class="col-md-4 mt-3">
                     <div class="card">
-                        <img src="https://source.unsplash.com/1200x400?{{ $shop->nama_produk }}" class="card-img-top" alt="{{ $shop->title }}">
+                        <img src="https://source.unsplash.com/500x500?{{ $shop->nama_produk }}" class="card-img-top" alt="{{ $shop->title }}">
                         <div class="card-body">
                         <h5 class="card-title">{{ $shop->nama_produk }}</h5>
-                        <p class="card-text">{{ $shop->kategori->nama_kategori }}</p>
+                        <p>
+                            <small>
+                                <a href="/shops?kategori={{ $shop->kategori->nama_kategori }}" class="text-decoration-none">{{ $shop->kategori->nama_kategori }}</a>
+                            </small>
+                        </p>
                         <p class="card-text">{{ $shop->harga }}</p>
                         <a href="/order/" class="btn btn-primary">Pesan</a>
                         </div>
@@ -21,7 +25,6 @@
                 </div>
             @endforeach
         </div>
-
     @else
         <p class="text-center fs-4">Tidak ada barang</p>
     @endif

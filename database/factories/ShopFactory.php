@@ -17,7 +17,6 @@ class ShopFactory extends Factory
             'kategori_id' => mt_rand(1,2),
             'nama_produk' => $this->faker->word(),
             'harga' => $this->faker->numberBetween(15000, 18000),
-            'slug' => $this->faker->slug()
         ];
     }
 }

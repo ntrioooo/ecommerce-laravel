@@ -40,7 +40,19 @@ class DashboardShopController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $createData = $request->validate([
+            'nama_produk' => 'required|max:255',
+            'kategori_id' => 'required',
+            'harga' => 'required'
+        ]);
+
+        if($request->file('image')) {
+            $createData['image'] = $request->file('image')->store('post-images');
+        }
+
+        Shop::create($createData);
+
+        return redirect('/dashboard/shops')->with('success', 'Data baru berhasil ditambahkan!');
     }
 
     /**
@@ -49,9 +61,11 @@ class DashboardShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Shop $shop)
     {
-        //
+        return view('dashboard.shops.show', [
+            'shop' => $shop
+        ]);
     }
 
     /**
@@ -60,9 +74,12 @@ class DashboardShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Shop $shop)
     {
-        //
+        return view('dashboard.shops.edit', [
+            'shop' => $shop,
+            'kategoris' => Kategori::all()
+        ]);
     }
 
     /**
@@ -72,9 +89,19 @@ class DashboardShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Shop $shop)
     {
-        //
+        $editData = [
+            'nama_produk' => 'required',
+            'harga' => 'required',
+        ];
+
+        $editDataValidate = $request->validate($editData);
+
+        Shop::where('id', $shop->id)
+            ->update($editDataValidate);
+
+        return redirect('/dashboard/shops')->with('success', 'Data barang berhasil diedit');
     }
 
     /**
@@ -83,8 +110,10 @@ class DashboardShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Shop $shop)
     {
-        //
+        Shop::destroy($shop->id);
+
+        return redirect('/dashboard/shops')->with('success', 'Data barang berhasil dihapus');
     }
 }
