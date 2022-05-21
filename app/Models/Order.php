@@ -11,15 +11,14 @@ class Order extends Model
 
     protected $guarded = ['id'];
 
-    public function users()
+    public function user()
     {
-        return $this->hasMany(User::class, 'name');
-        // 1 users punya banyak orderan (pesanan)
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function shops()
+    public function shop()
     {
-        return $this->hasMany(Shop::class, 'nama_produk');
-        // 1 barang punya banyak orderan
+        return $this->belongsTo(Shop::class, 'nama_produk_id');
+        
     }
 }

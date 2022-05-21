@@ -10,7 +10,7 @@
             <div class="row">
                 @foreach ($kategoris as $kategori)
                     <div class="col-md-4 mt-3">
-                        <a href="/shops?category={{ $kategori->id }}">
+                        <a href="/shops?kategoris={{ $kategori->id }}">
                             <div class="card bg-dark text-white">
                                 <img src="https://source.unsplash.com/500x500?{{ $kategori->nama_kategori }}" class="card-img" alt="{{ $kategori->nama_kategori }}">
                                 <div class="card-img-overlay d-flex align-items-center p-0">

@@ -1,3 +1,5 @@
+
+
 .text-title {
     font-family: 'Poppins';
     font-style: normal;
@@ -45,4 +47,12 @@
 
 section {
     background-color: #0D6EFD;
+}
+
+.fluid {
+    margin-left: -25px;
+}
+
+.form-signin {
+    margin-left: 150px;
 }

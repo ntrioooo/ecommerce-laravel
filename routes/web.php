@@ -1,9 +1,14 @@
 <?php
 
-use App\Http\Controllers\ShopController;
 use App\Models\Kategori;
-use App\Http\Controllers\DashboardShopController;
+use App\Models\Shop;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardShopController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +30,17 @@ Route::get('/', function () {
 });
 
 Route::get('/shops', [ShopController::class, 'index']);
+// Route::get('shops/order/{shop:id}', [ShopController::class, 'order']);
 
-Route::get('/order', function(){
-    return view('order', [
-        'title' => 'Pemesanan',
-        'active' => 'shops'
-    ]);
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'store']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::resource('shops/order/{shop:id}', OrderController::class);
+
 
 Route::get('/success', function(){
     return view('order', [
@@ -57,8 +66,12 @@ Route::get('/kategoris', function() {
     ]);
 });
 
-Route::get('/dashboard', function (){
-    return view('dashboard.index');
-});
 
-Route::resource('/dashboard/shops', DashboardShopController::class);
+
+Route::get('/dashboard', function (){
+    $userCount = User::count();
+    $shopCount = Shop::count();
+    return view('dashboard.index', compact('userCount', 'shopCount'));
+})->middleware('admin');
+
+Route::resource('/dashboard/shops', DashboardShopController::class)->middleware('admin');

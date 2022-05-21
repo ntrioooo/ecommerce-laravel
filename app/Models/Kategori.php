@@ -11,7 +11,7 @@ class Kategori extends Model
 
     protected $guarded = ['id'];
 
-    public function shop()
+    public function shops()
     {
         return $this->hasMany(Shop::class);
         // 1 kategori punya banyak produk

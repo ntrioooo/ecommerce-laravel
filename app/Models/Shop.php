@@ -16,4 +16,9 @@ class Shop extends Model
         return $this->belongsTo(Kategori::class);
         // 1 produk punya 1 kategori
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
