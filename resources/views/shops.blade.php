@@ -13,7 +13,7 @@
                         <img src="https://source.unsplash.com/500x500?{{ $shop->nama_produk }}" class="card-img-top" alt="{{ $shop->title }}">
                         <div class="card-body">
                         <h5 class="card-title">{{ $shop->nama_produk }}</h5>
-                        <p>{{ $shop->kategori->nama_kategori }}</p>
+                        <p>Jenis {{ $shop->kategori->nama_kategori }}</p>
                         <p class="card-text">Rp.{{ $shop->harga }}</p>
                         <a href="/shops/{{ $shop->id }}" class="btn btn-primary">Pesan</a>
                         </div>

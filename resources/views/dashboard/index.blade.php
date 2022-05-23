@@ -22,5 +22,13 @@
                 </div>
               </div>
         </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-end">
+                  <h1 class="card-title">{{ $orderCount }}</h1>
+                  <h4 class="card-text">Data order</h4>
+                </div>
+              </div>
+        </div>
     </div>
 @endsection

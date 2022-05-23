@@ -17,7 +17,10 @@ class OrderFactory extends Factory
             'user_id' => mt_rand(2,3),
             'nama_produk_id' => mt_rand(1,10),
             'size' => $this->faker->randomElement(['S', 'M', 'L', 'XL']),
-            'alamat' => $this->faker->word()
+            'kelurahan' => $this->faker->word(),
+            'kecamatan' => $this->faker->word(),
+            'alamat' => $this->faker->word(),
+            'no_hp' => $this->faker->word(),
         ];
     }
 }

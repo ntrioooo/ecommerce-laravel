@@ -18,6 +18,9 @@ class CreateOrdersTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('nama_produk_id');
             $table->string('size');
+            $table->string('kelurahan');
+            $table->string('kecamatan');
+            $table->string('no_hp');
             $table->string('alamat');
             $table->timestamps();
         });

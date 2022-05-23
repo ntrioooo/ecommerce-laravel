@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Kategori;
+use App\Models\Order;
 use App\Models\Shop;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +36,7 @@ Route::get('shops/{shop:id}', [ShopController::class, 'show']);
 Route::get('/shops/order/{shop:id}', [OrderController::class, 'create']);
 Route::post('/shops/order/{shop:id}', [OrderController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -59,12 +59,11 @@ Route::get('/about', function () {
     ]);
 });
 
-// Route::get('/shops/order/{shop:id}', [OrderController::class, 'index']);
-
 Route::get('/dashboard', function (){
     $userCount = User::count();
     $shopCount = Shop::count();
-    return view('dashboard.index', compact('userCount', 'shopCount'));
+    $orderCount = Order::count();
+    return view('dashboard.index', compact('userCount', 'shopCount', 'orderCount'));
 })->middleware('admin');
 
 Route::resource('/dashboard/shops', DashboardShopController::class)->middleware('admin');

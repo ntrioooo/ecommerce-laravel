@@ -13,6 +13,8 @@
             <div class="card-body">
             <h5 class="card-title">{{ $shop->nama_produk }}</h5>
             <p>{{ $shop->kategori->nama_kategori }}</p>
+            <p class="text-muted">Kualitas terjamin</p>
+            <p class="text-muted">Barang bagus</p>
             <p class="card-text fw-bold">Rp.{{ $shop->harga }}</p>
             </div>
             <a href="/shops/order/{{ $shop->id }}" class="btn btn-primary mt-3">Order</a>

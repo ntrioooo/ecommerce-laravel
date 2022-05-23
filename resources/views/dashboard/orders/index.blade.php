@@ -5,21 +5,18 @@
       <h1 class="h2">Data Orderan</h1>
   </div>
 
-
-@if (session()->has('success'))
-    <div class="alert alert-success col-lg-8" role="alert">
-      {{ session('success') }}
-    </div>
-@endif
-  <div class="table-responsive col-lg-8">
+  <div class="table-responsive col-lg-9">
     <table class="table table-striped table-sm">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nama Lengkap</th>
           <th scope="col">Nama Produk</th>
+          <th scope="col">Size</th>
           <th scope="col">Harga</th>
-          <th scope="col">Alamat</th>
+          <th scope="col">Kecamatan</th>
+          <th scope="col">Kelurahan</th>
+          <th scope="col">Alamat Lengkap</th>
         </tr>
       </thead>
       <tbody>
@@ -28,7 +25,10 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $order->user->name }}</td>
             <td>{{ $order->shop->nama_produk }}</td>
+            <td>{{ $order->size }}</td>
             <td>{{ $order->shop->harga }}</td>
+            <td>{{ $order->kecamatan }}</td>
+            <td>{{ $order->kelurahan }}</td>
             <td>{{ $order->alamat }}</td>
           </tr>
         @endforeach

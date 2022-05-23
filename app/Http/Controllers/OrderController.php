@@ -25,7 +25,10 @@ class OrderController extends Controller
             'user_id' => 'required',
             'nama_produk_id' => 'required',
             'size' => 'required',
-            'alamat' => 'required',
+            'no_hp' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'alamat' => 'required'
         ]);
 
         Order::create($createOrder);
