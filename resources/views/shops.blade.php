@@ -15,7 +15,7 @@
                         <h5 class="card-title">{{ $shop->nama_produk }}</h5>
                         <p>{{ $shop->kategori->nama_kategori }}</p>
                         <p class="card-text">Rp.{{ $shop->harga }}</p>
-                        <a href="shops/order/{{ $shop->id }}" class="btn btn-primary">Pesan</a>
+                        <a href="/shops/{{ $shop->id }}" class="btn btn-primary">Pesan</a>
                         </div>
                     </div>
                 </div>

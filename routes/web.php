@@ -8,6 +8,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardShopController;
+use App\Http\Controllers\DashboardOrderController;
 use App\Http\Controllers\OrderController;
 
 /*
@@ -30,7 +31,10 @@ Route::get('/', function () {
 });
 
 Route::get('/shops', [ShopController::class, 'index']);
-// Route::get('shops/order/{shop:id}', [ShopController::class, 'order']);
+Route::get('shops/{shop:id}', [ShopController::class, 'show']);
+
+Route::get('/shops/order/{shop:id}', [OrderController::class, 'create']);
+Route::post('/shops/order/{shop:id}', [OrderController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'store']);
@@ -38,9 +42,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
-
-Route::resource('shops/order/{shop:id}', OrderController::class);
-
 
 Route::get('/success', function(){
     return view('order', [
@@ -58,15 +59,7 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/kategoris', function() {
-    return view ('kategoris', [
-        'title' => 'Kategori',
-        'active' => 'kategoris',
-        'kategoris' => Kategori::all()
-    ]);
-});
-
-
+// Route::get('/shops/order/{shop:id}', [OrderController::class, 'index']);
 
 Route::get('/dashboard', function (){
     $userCount = User::count();
@@ -75,3 +68,4 @@ Route::get('/dashboard', function (){
 })->middleware('admin');
 
 Route::resource('/dashboard/shops', DashboardShopController::class)->middleware('admin');
+Route::resource('/dashboard/orders', DashboardOrderController::class)->middleware('admin');

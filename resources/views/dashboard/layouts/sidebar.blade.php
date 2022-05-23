@@ -13,6 +13,12 @@
                 Data Barang
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('dashboard/orders*') ? 'active' : '' }}" href="/dashboard/orders">
+                <span data-feather="grid"></span>
+                Data Orderan
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

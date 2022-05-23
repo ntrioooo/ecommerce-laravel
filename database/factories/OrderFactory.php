@@ -14,9 +14,10 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'nama_produk' => $this->faker->word(),  
-            'size' => $this->faker->randomElement(['S', 'M', 'L', 'XL'])
+            'user_id' => mt_rand(2,3),
+            'nama_produk_id' => mt_rand(1,10),
+            'size' => $this->faker->randomElement(['S', 'M', 'L', 'XL']),
+            'alamat' => $this->faker->word()
         ];
     }
 }
