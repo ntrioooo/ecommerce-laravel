@@ -18,14 +18,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'username' => 'admin',
-            'password' => bcrypt('admin'),
+            'name' => 'Rahmat',
+            'email' => 'rahmat@gmail.com',
+            'username' => 'rahmat',
+            'password' => bcrypt('rahmat'),
             'is_admin' => 1
         ]);
 
-        User::factory(2)->create();
+        // User::factory(2)->create();
 
         Kategori::create([
             'nama_kategori' => 'Top',
@@ -35,8 +35,8 @@ class DatabaseSeeder extends Seeder
             'nama_kategori' => 'Bottom',
         ]);
 
-        // Shop::factory(3)->create();
+        // Shop::factory(10)->create();
 
-        // Order::factory(5)->create();
+        // Order::factory(2)->create();
     }
 }
