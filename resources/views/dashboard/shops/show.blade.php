@@ -8,7 +8,7 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                       <div class="col-md-6">
-                        <img src="https://source.unsplash.com/1200x800?{{ $shop->nama_produk }}" class="img-fluid rounded-start" alt="{{ $shop->nama_produk }}">
+                          <img src="{{ asset('storage/' . $shop->image) }}" alt="{{ $shop->nama_produk }}" class="img-fluid rounded-start" style="max-height: 350px; overflow:hidden">
                       </div>
                       <div class="col-md-6">
                         <div class="card-body">

@@ -7,7 +7,7 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="https://source.unsplash.com/400x300?{{ $shop->nama_produk }}" class="img-fluid rounded-start" alt="{{ $shop->nama_produk }}">
+                        <img src="{{ asset('storage/' . $shop->image) }}" alt="{{ $shop->nama_produk }}" class="img-fluid rounded-start" style="max-height: 400px; overflow:hidden">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -31,7 +31,7 @@
             @endif
             </div>
         </div>
-        <form method="POST" action="/shops/order/{{ $shops }}" class="row g-2" enctype="multipart/form-data">
+        <form method="POST" action="/shops/order/{{ $users }}" class="row g-2" enctype="multipart/form-data">
             @csrf
             <h3 class="text-center mt-2">Detail Pemesanan</h3>
             <div class="col-md-6">

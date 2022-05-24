@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
       <div class="col-md-4 mt-3">
         <div class="card">
-            <img src="https://source.unsplash.com/500x500?{{ $shop->nama_produk }}" class="card-img-top" alt="{{ $shop->title }}">
+            <img src="{{ asset('storage/' . $shop->image) }}" alt="{{ $shop->nama_produk }}" class="img-fluid rounded-start" style="max-height: 400px; overflow:hidden">
             <div class="card-body">
             <h5 class="card-title">{{ $shop->nama_produk }}</h5>
             <p>{{ $shop->kategori->nama_kategori }}</p>

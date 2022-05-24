@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Trio Nugroho',
-            'email' => 'asd@gmail.com',
-            'username' => 'ntrio',
-            'password' => bcrypt('qwerty'),
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'username' => 'admin',
+            'password' => bcrypt('admin'),
             'is_admin' => 1
         ]);
 
@@ -35,8 +35,8 @@ class DatabaseSeeder extends Seeder
             'nama_kategori' => 'Bottom',
         ]);
 
-        Shop::factory(10)->create();
+        // Shop::factory(3)->create();
 
-        Order::factory(5)->create();
+        // Order::factory(5)->create();
     }
 }

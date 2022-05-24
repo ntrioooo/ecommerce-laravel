@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Models\Shop;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardShopController extends Controller
 {
@@ -43,11 +44,12 @@ class DashboardShopController extends Controller
         $createData = $request->validate([
             'nama_produk' => 'required|max:255',
             'kategori_id' => 'required',
-            'harga' => 'required'
+            'harga' => 'required',
+            'image' => 'image|file|max:5000'
         ]);
 
         if($request->file('image')) {
-            $createData['image'] = $request->file('image')->store('post-images');
+            $createData['image'] = $request->file('image')->store('produk-images');
         }
 
         Shop::create($createData);
@@ -94,9 +96,17 @@ class DashboardShopController extends Controller
         $editData = [
             'nama_produk' => 'required',
             'harga' => 'required',
+            'image' => 'image|file|max:5000'
         ];
 
         $editDataValidate = $request->validate($editData);
+
+        if($request->file('image')) {
+            if($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $editDataValidate['image'] = $request->file('image')->store('produk-images');
+        }
 
         Shop::where('id', $shop->id)
             ->update($editDataValidate);
@@ -112,6 +122,10 @@ class DashboardShopController extends Controller
      */
     public function destroy(Shop $shop)
     {
+        if($shop->image) {
+            Storage::delete($shop->image);
+        }
+
         Shop::destroy($shop->id);
 
         return redirect('/dashboard/shops')->with('success', 'Data barang berhasil dihapus');

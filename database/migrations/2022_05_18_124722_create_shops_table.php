@@ -18,6 +18,7 @@ class CreateShopsTable extends Migration
             $table->foreignId('kategori_id');
             $table->string('nama_produk');
             $table->integer('harga');
+            $table->string('image')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

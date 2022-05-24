@@ -28,7 +28,7 @@ class OrderController extends Controller
             'no_hp' => 'required',
             'kecamatan' => 'required',
             'kelurahan' => 'required',
-            'alamat' => 'required'
+            'alamat' => 'required',
         ]);
 
         Order::create($createOrder);

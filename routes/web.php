@@ -34,7 +34,7 @@ Route::get('/shops', [ShopController::class, 'index']);
 Route::get('shops/{shop:id}', [ShopController::class, 'show']);
 
 Route::get('/shops/order/{shop:id}', [OrderController::class, 'create']);
-Route::post('/shops/order/{shop:id}', [OrderController::class, 'store']);
+Route::post('/shops/order/{id}', [OrderController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'store']);
