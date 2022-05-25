@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row fluid">
             <div class="col-md-5 mt-3">
-                <img src="{{ $image }}" alt="{{ $image }}">
+                <img src="{{ $image }}" class="img-fluid" alt="{{ $image }}">
             </div>
             <div class="col-md-5 align-self-center">
                 <main class="form-signin">

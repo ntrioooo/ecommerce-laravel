@@ -3,7 +3,7 @@
 @section('container')
     <main>
         <div class="container">
-            <div class="row">
+            <div class="row flex-column-reverse flex-lg-row">
                 <div class="col-md-6 mt-5">
                     <div class="text-title">
                         <p>Tinggal “klik-klik” barang sudah datang!</p>
@@ -18,7 +18,7 @@
                     <a href="/register" class="text-decoration-none btn button-daftar my-4">Daftar Sekarang</a>
                 </div>
                 <div class="col-md-6 mt-5">
-                    <img src="images/{{ $image }}" alt="{{ $image }}">
+                    <img src="images/{{ $image }}" class="img-fluid" alt="{{ $image }}">
                 </div>
             </div>
         </div>
